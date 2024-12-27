@@ -10,7 +10,8 @@ use crate::prelude::*;
 /// and a default resource in case the persistent resource is created for the first time.
 ///
 /// They are synchronized with the disk from the moment of their creation.
-#[derive(Component, Debug, Resource)]
+#[derive(Component, Debug, Resource, Reflect)]
+#[reflect(Resource)]
 pub struct Persistent<R: Resource + Serialize + DeserializeOwned> {
     pub(crate) name: String,
     pub(crate) format: StorageFormat,
