@@ -17,6 +17,7 @@ pub struct Persistent<R: Resource + Serialize + DeserializeOwned> {
     pub(crate) format: StorageFormat,
     pub(crate) storage: Storage,
     pub(crate) resource: Option<R>,
+    #[reflect(ignore)]
     pub(crate) default: Option<Box<R>>,
     pub(crate) revert_to_default_on_deserialization_errors: bool,
 }
